@@ -1,0 +1,63 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package bookmanage;
+
+import java.util.Scanner;
+
+/**
+ *
+ * @author admin
+ */
+public class main {
+    static Scanner sc=new Scanner(System.in);
+    private static String[] arr={"Display Data","Add last data","Add first data","Add position","Search bCode","Delete bCode","Delete position","Sort bCode","Save","Exit"};
+    private static int getChoice(){
+        for(int i=0;i<arr.length;i++){
+            System.out.println((i+1)+"."+arr[i]);
+        }
+        System.out.print("Enter choice:");
+        int n=sc.nextInt();
+        return n;
+    }
+    public static void main(String[] args){
+        Manage m=new Manage("book.txt");
+        int choice;
+        do{
+            choice=getChoice();
+            switch(choice){
+                case 1:
+                    m.display("book.txt");
+                    break;
+                case 2:
+                    m.add(1);
+                    break;
+                case 3:
+                    m.add(2);
+                    break;
+                case 4:
+                    m.add(3);
+                    break;
+                case 5:
+                    m.search();
+                    break;
+                case 6:
+                    m.delete();
+                    break;
+                case 7:
+                    m.deletepostion("book.txt");
+                    break;
+                case 8:
+                    m.sort("book.txt");
+                    break;
+                case 9:
+                    m.saveData("book.txt");
+                    break;
+                case 10:
+                    break;
+            }
+        }while(choice!=10);
+    }
+}
